@@ -59,7 +59,19 @@ SOFTWARE. */
         return false
       }
 
-      return this.truthy_values[ b ] ? true : false
+      var t
+
+      if ( Object.prototype.toString.call( b ) === '[object String]' )
+      {
+        t = b.toLowerCase()
+      }
+
+      else
+      {
+        t = b
+      }
+
+      return this.truthy_values[ t ] ? true : false
     }
 
     setTrue( values )
