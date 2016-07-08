@@ -1,2 +1,2 @@
 # booler
-convert strings and numbers to bool values
+convert any object to a boolean value

@@ -1,0 +1,24 @@
+{
+  "name": "booler",
+  "version": "0.0.1",
+  "description": "convert objects to boolean values",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvonflotow/booler.git"
+  },
+  "keywords": [
+    "bool",
+    "boolean",
+    "truthy"
+  ],
+  "author": "Kevin von Flotow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kvonflotow/booler/issues"
+  },
+  "homepage": "https://github.com/kvonflotow/booler#readme"
+}
