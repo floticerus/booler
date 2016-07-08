@@ -10,7 +10,7 @@ const booler = new Booler(
     // force lowercase testing
     lowercase: true,
 
-    // defaults truthy values are...
+    // default truthy values are...
     // - true
     // - 1
     // - "true"
