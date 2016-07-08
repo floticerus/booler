@@ -44,10 +44,26 @@ SOFTWARE. */
       // store as plain-object for faster searches
       this.truthy_values = {}
 
+      // forced lowercase. defaults to true
+      this.lowercase = typeof conf.lowercase !== 'undefined' ? conf.lowercase ? true : false : true
+
       // no need to filter since we're inserting into an object
       truthy_values.concat( ( conf.truthy_values || [] ) ).forEach( ( v ) =>
         {
-          this.truthy_values[ v ] = true
+          var t
+
+          if ( this.lowercase
+            && Object.prototype.toString.call( v ) === '[object String]' )
+          {
+              t = v.toLowerCase()
+          }
+
+          else
+          {
+            t = v
+          }
+
+          this.truthy_values[ t ] = true
         }
       )
     }
@@ -61,7 +77,8 @@ SOFTWARE. */
 
       var t
 
-      if ( Object.prototype.toString.call( b ) === '[object String]' )
+      if ( this.lowercase
+        && Object.prototype.toString.call( b ) === '[object String]' )
       {
         t = b.toLowerCase()
       }
@@ -86,9 +103,22 @@ SOFTWARE. */
         values = [ values ]
       }
 
-      values.forEach( ( value ) =>
+      values.forEach( ( v ) =>
         {
-          this.truthy_values[ value ] = true
+          var t
+
+          if ( this.lowercase
+            && Object.prototype.toString.call( v ) === '[object String]' )
+          {
+            t = v.toLowerCase()
+          }
+
+          else
+          {
+            t = v
+          }
+
+          this.truthy_values[ t ] = true
         }
       )
     }
@@ -108,12 +138,25 @@ SOFTWARE. */
         values = [ values ]
       }
 
-      values.forEach( ( value ) =>
+      values.forEach( ( v ) =>
         {
-          if ( this.truthy_values[ value ] )
+          var t
+
+          if ( this.lowercase
+            && Object.prototype.toString.call( v ) === '[object String]' )
           {
-            this.truthy_values[ value ] = null
-            delete this.truthy_values[ value ]
+            t = v.toLowerCase()
+          }
+
+          else
+          {
+            t = v
+          }
+
+          if ( this.truthy_values[ t ] )
+          {
+            this.truthy_values[ t ] = null
+            delete this.truthy_values[ t ]
           }
         }
       )
